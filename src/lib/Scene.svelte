@@ -56,8 +56,42 @@
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
         const loader = new GLTFLoader();
         
-        // Load the BAG model from public directory
-        const gltf = await loader.loadAsync('/BAG.glb');
+        // Try multiple paths to find the model
+        const possiblePaths = [
+          '/src/lib/images/BAG.glb',
+          '/BAG.glb',
+          './BAG.glb',
+          'BAG.glb',
+          '/public/BAG.glb'
+        ];
+        
+        let gltf = null;
+        let lastError = null;
+        
+        for (const path of possiblePaths) {
+          try {
+            console.log('Trying to load model from:', path);
+            
+            // First, test if the file is accessible
+            const response = await fetch(path);
+            if (!response.ok) {
+              console.log('File not accessible at:', path, 'Status:', response.status);
+              continue;
+            }
+            
+            gltf = await loader.loadAsync(path);
+            console.log('Successfully loaded model from:', path);
+            break;
+          } catch (error) {
+            console.log('Failed to load from:', path, error.message);
+            lastError = error;
+          }
+        }
+        
+        if (!gltf) {
+          throw lastError || new Error('Could not load model from any path');
+        }
+        
         model = gltf.scene;
         
         // Scale and position the model
