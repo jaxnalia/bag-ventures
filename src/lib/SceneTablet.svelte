@@ -14,9 +14,9 @@
     scene = new THREE.Scene();
     scene.background = null; // Transparent background
 
-    // Camera setup
-    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0.5, 1.5);
+    // Camera setup - optimized for tablet
+    camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    camera.position.set(0, 0.4, 1.4);
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({ 
@@ -24,8 +24,8 @@
       antialias: true,
       alpha: true 
     });
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(400, 400); // Fixed size for tablet
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -46,7 +46,7 @@
     pointLight2.position.set(5, -5, -5);
     scene.add(pointLight2);
 
-    // Load the BAG model from GitHub
+    // Load the BAG model
     const loadModel = async () => {
       try {
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
@@ -56,8 +56,9 @@
         const gltf = await loader.loadAsync(modelUrl);
         
         model = gltf.scene;
-        model.scale.setScalar(10);
-        model.position.set(0, -0.15, 0);
+        model.scale.setScalar(9); // Medium scale for tablet
+        model.position.set(0, -0.12, 0);
+        model.rotation.y = (160 * Math.PI) / 180; // Start rotated 160 degrees
         
         model.traverse((child) => {
           if (child instanceof THREE.Mesh) {
@@ -69,7 +70,7 @@
         scene.add(model);
       } catch (error) {
         // Fallback: create a simple geometry
-        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const geometry = new THREE.BoxGeometry(1.8, 1.8, 1.8);
         const material = new THREE.MeshPhongMaterial({ 
           color: 0x8b5cf6,
           transparent: true,
@@ -88,30 +89,15 @@
     function animate() {
       animationId = requestAnimationFrame(animate);
       
-      // Rotate the model slowly - only horizontally (Y-axis)
       if (model) {
         model.rotation.y += 0.005;
-        // Remove X-axis rotation to keep it horizontal only
       }
       
       renderer.render(scene, camera);
     }
     animate();
 
-    // Handle resize
-    const handleResize = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
@@ -127,5 +113,7 @@
 <style>
   canvas {
     background: transparent;
+    width: 400px;
+    height: 400px;
   }
 </style>

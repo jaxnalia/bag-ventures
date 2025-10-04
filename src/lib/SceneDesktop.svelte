@@ -14,8 +14,8 @@
     scene = new THREE.Scene();
     scene.background = null; // Transparent background
 
-    // Camera setup
-    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    // Camera setup - optimized for desktop
+    camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
     camera.position.set(0, 0.5, 1.5);
 
     // Renderer setup
@@ -24,7 +24,7 @@
       antialias: true,
       alpha: true 
     });
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setSize(500, 500); // Fixed size for desktop
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -46,7 +46,7 @@
     pointLight2.position.set(5, -5, -5);
     scene.add(pointLight2);
 
-    // Load the BAG model from GitHub
+    // Load the BAG model
     const loadModel = async () => {
       try {
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
@@ -56,8 +56,9 @@
         const gltf = await loader.loadAsync(modelUrl);
         
         model = gltf.scene;
-        model.scale.setScalar(10);
+        model.scale.setScalar(10); // Full scale for desktop
         model.position.set(0, -0.15, 0);
+        model.rotation.y = (160 * Math.PI) / 180; // Start rotated 160 degrees
         
         model.traverse((child) => {
           if (child instanceof THREE.Mesh) {
@@ -88,30 +89,15 @@
     function animate() {
       animationId = requestAnimationFrame(animate);
       
-      // Rotate the model slowly - only horizontally (Y-axis)
       if (model) {
         model.rotation.y += 0.005;
-        // Remove X-axis rotation to keep it horizontal only
       }
       
       renderer.render(scene, camera);
     }
     animate();
 
-    // Handle resize
-    const handleResize = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
@@ -127,5 +113,7 @@
 <style>
   canvas {
     background: transparent;
+    width: 500px;
+    height: 500px;
   }
 </style>
