@@ -16,7 +16,7 @@
 
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0.3, 1);
+    camera.position.set(0, 0.5, 1.5);
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({ 
@@ -28,6 +28,9 @@
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    
+    console.log('Canvas size:', canvas.clientWidth, 'x', canvas.clientHeight);
+    console.log('Camera position:', camera.position);
 
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0x404040, 1);
@@ -46,19 +49,49 @@
     pointLight2.position.set(5, -5, -5);
     scene.add(pointLight2);
 
-    // Create a simple rotating geometry as placeholder
-    // This avoids the GLTFLoader import issues in production builds
-    const geometry = new THREE.BoxGeometry(4, 4, 4);
-    const material = new THREE.MeshPhongMaterial({ 
-      color: 0x8b5cf6,
-      transparent: true,
-      opacity: 0.8
-    });
-    model = new THREE.Mesh(geometry, material);
-    model.castShadow = true;
-    model.receiveShadow = true;
-    scene.add(model);
-    console.log('Using 3D placeholder geometry');
+    // Load the BAG model
+    const loadModel = async () => {
+      try {
+        // Use a more compatible import method
+        const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
+        const loader = new GLTFLoader();
+        
+        // Load the BAG model
+        const gltf = await loader.loadAsync('/src/lib/images/BAG.glb');
+        model = gltf.scene;
+        
+        // Scale and position the model
+        model.scale.setScalar(10);
+        model.position.set(0, -0.15, 0);
+        
+        // Enable shadows
+        model.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        
+        scene.add(model);
+        console.log('BAG model loaded successfully');
+      } catch (error) {
+        console.error('Error loading BAG model:', error);
+        // Fallback: create a simple geometry
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const material = new THREE.MeshPhongMaterial({ 
+          color: 0x8b5cf6,
+          transparent: true,
+          opacity: 0.9
+        });
+        model = new THREE.Mesh(geometry, material);
+        model.castShadow = true;
+        model.receiveShadow = true;
+        scene.add(model);
+        console.log('Using fallback geometry');
+      }
+    };
+    
+    loadModel();
 
     // Animation loop
     function animate() {
