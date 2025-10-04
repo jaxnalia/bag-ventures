@@ -56,8 +56,8 @@
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
         const loader = new GLTFLoader();
         
-        // Load the BAG model
-        const gltf = await loader.loadAsync('/src/lib/images/BAG.glb');
+        // Load the BAG model from public directory
+        const gltf = await loader.loadAsync('/BAG.glb');
         model = gltf.scene;
         
         // Scale and position the model

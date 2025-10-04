@@ -78,24 +78,24 @@
               </div>
               <h3 class="text-white font-semibold mb-2">Secure</h3>
               <p class="text-gray-400 text-sm">Launching on pump.tires, liquidity locked forever</p>
-            </div>
+    </div>
             <div class="text-left">
               <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mb-3 flex items-center justify-center">
                 <span class="text-white text-xl">🌐</span>
-              </div>
+        </div>
               <h3 class="text-white font-semibold mb-2">Decentralized</h3>
               <p class="text-gray-400 text-sm">True decentralization at its core</p>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+  </div>
 
         <!-- Right side - 3D Model -->
         <div class="relative z-10">
           <div class="w-full h-96 lg:h-[500px] relative">
             <Scene />
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
     </div>
 
     <!-- Scroll indicator -->
