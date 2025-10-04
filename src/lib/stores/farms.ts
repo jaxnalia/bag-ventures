@@ -26,24 +26,24 @@ export interface TokenPrices {
 
 export const farms = writable<Farm[]>([
   {
-    pair: 'BAG-WPLS',
+    pair: 'BAG-SOL',
     tvl: 0,
     apr: 0,
     earned: 0,
     staked: 0,
     logo1: schwag,
-    logo2: pls,
+    logo2: "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1718769756",
     poolId: 0,
     lpAddress: '0x9A5C8868a7B6c099238A87b7e4d0AE03f9CB4393'
   },
   {
-    pair: 'SWAG-WPLS',
+    pair: 'SWAG-SOL',
     tvl: 0,
     apr: 0,
     earned: 0,
     staked: 0,
     logo1: schwag,
-    logo2: pls,
+    logo2: "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1718769756",
     poolId: 1,
     lpAddress: '0xb75443509d897cE6D9b8F67C4B9eCc45dDdf3160'
   },

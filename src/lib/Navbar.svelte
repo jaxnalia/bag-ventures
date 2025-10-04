@@ -29,18 +29,24 @@
     }
   }
 
-  async function connectWallet() {
-    connecting = true;
-    try {
-      const wallets = await onboard.connectWallet();
-      if (wallets[0]) {
-        wallet = wallets[0];
-        await checkNetwork();
-      }
-    } catch (error) {
-      console.error('Error connecting wallet:', error);
-    }
-    connecting = false;
+  // Wallet connection functionality temporarily disabled
+  // async function connectWallet() {
+  //   connecting = true;
+  //   try {
+  //     const wallets = await onboard.connectWallet();
+  //     if (wallets[0]) {
+  //       wallet = wallets[0];
+  //       await checkNetwork();
+  //     }
+  //   } catch (error) {
+  //     console.error('Error connecting wallet:', error);
+  //   }
+  //   connecting = false;
+  // }
+
+  // Placeholder function to prevent errors
+  function connectWallet() {
+    console.log('Wallet connection temporarily disabled');
   }
 
   // Subscribe to chain changes

@@ -9,7 +9,7 @@
   <!-- Hero Section -->
   <section class="relative min-h-screen border-b border-pink-500/20 flex items-center justify-center overflow-hidden" style="margin-top: -80px; padding-top: 80px; padding-bottom: 100px; z-index: 0;">
     <!-- Background Image -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://blog.volkovlaw.com/wp-content/uploads/2023/08/FTQQ2PcaMAA5N5c-scaled.jpg');"></div>
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60" style="background-image: url('https://w0.peakpx.com/wallpaper/692/670/HD-wallpaper-louis-vuitton-first-letter-in-black-background-louis-vuitton.jpg');"></div>
     
     <!-- Purple overlay -->
     <div class="absolute inset-0 bg-gradient-to-br from-purple-950/95 via-violet-950/98 to-purple-900/95"></div>
@@ -71,7 +71,7 @@
           <!-- Social Links -->
           <div class="flex gap-4 justify-center lg:justify-start mt-6">
             <a 
-              href="https://x.com/pls_lean" 
+              href="https://x.com/bagventures" 
               target="_blank" 
               rel="noopener noreferrer"
               class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl flex items-center justify-center hover:bg-gray-700/70 hover:border-gray-600/70 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25 group"
@@ -82,7 +82,7 @@
             </a>
             
             <a 
-              href="https://t.me/pls_lean" 
+              href="https://t.me/bagventures" 
               target="_blank" 
               rel="noopener noreferrer"
               class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl flex items-center justify-center hover:bg-gray-700/70 hover:border-gray-600/70 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25 group"
@@ -136,17 +136,17 @@
     
     <div class="relative max-w-7xl mx-auto text-center">
       <h2 class="text-4xl font-bold text-white mb-8">
-        Ready to experience the future?
+        Ready to experience true DeFi?
       </h2>
       <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-        Join forces with users who are using BAG ecosystem to build the future of DeFi.
+        Join the $BAG holders on Telegram.
       </p>
-      <button class="px-12 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25 flex items-center gap-3 mx-auto">
+      <a href="https://t.me/bagventures" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-12 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
         </svg>
         Join The Telegram
-      </button>
+      </a>
     </div>
   </section>
 
@@ -180,7 +180,7 @@
              <span class="text-white text-4xl">🔒</span>
            </div>
            <h3 class="text-white font-semibold mb-3 text-lg">Secure</h3>
-           <p class="text-gray-300">Launching on pump.tires, liquidity locked forever</p>
+           <p class="text-gray-300">Launching on Pump.fun, liquidity locked forever</p>
          </div>
          
          <div class="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:bg-gray-700/40 hover:border-gray-600/70 transition-all duration-300 transform hover:scale-105">

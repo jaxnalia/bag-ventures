@@ -341,15 +341,17 @@
 
   <div class="text-center">
     <div class="p-6 rounded-2xl max-w-2xl mx-auto">
-      <p class="text-pink-300 font-medium mb-4">Made with 💖 in <a class="text-purple-300 hover:text-purple-200 transition-colors font-semibold" href="https://discord.gg/74EcvWvC7M">anEntryP❍int</a>.</p>
+      <p class="text-pink-300 font-medium mb-4">Made with 💜 by BigJax
+         <!-- by <a class="text-purple-300 hover:text-purple-200 transition-colors font-semibold" href="https://discord.gg/74EcvWvC7M">BagVentures</a>. -->
+        </p>
       <div class="flex justify-center gap-6 text-pink-300">
-        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://x.com/pls_lean">
+        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://x.com/bagventures">
           <span>🐦</span> X
         </a>
-        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://scan.pulsechainfoundation.org/#/address/0xbE7f4fFfDe4241cA25eb27616aE3974aF0a023fD?tab=contract">
+        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="/">
           <span>📄</span> Contract
         </a>
-        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://leantoken.org/docs">
+        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="/">
           <span>📚</span> Docs
         </a>
       </div>
