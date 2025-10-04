@@ -46,49 +46,19 @@
     pointLight2.position.set(5, -5, -5);
     scene.add(pointLight2);
 
-    // Load the BAG model using fetch and GLTFLoader
-    const loadModel = async () => {
-      try {
-        // Import GLTFLoader dynamically to avoid build issues
-        const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
-        const loader = new GLTFLoader();
-        
-        // Load the BAG model
-        const gltf = await loader.loadAsync('/src/lib/images/BAG.glb');
-        model = gltf.scene;
-        
-        // Scale and position the model - make it much bigger
-        model.scale.setScalar(6);
-        model.position.set(0, -0.1, 0);
-        
-        // Enable shadows
-        model.traverse((child) => {
-          if (child instanceof THREE.Mesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-          }
-        });
-        
-        scene.add(model);
-        console.log('BAG model loaded successfully');
-      } catch (error) {
-        console.error('Error loading BAG model:', error);
-        // Fallback: create a simple geometry - make it bigger
-        const geometry = new THREE.BoxGeometry(4, 4, 4);
-        const material = new THREE.MeshPhongMaterial({ 
-          color: 0x8b5cf6,
-          transparent: true,
-          opacity: 0.8
-        });
-        model = new THREE.Mesh(geometry, material);
-        model.castShadow = true;
-        model.receiveShadow = true;
-        scene.add(model);
-        console.log('Using fallback geometry');
-      }
-    };
-    
-    loadModel();
+    // Create a simple rotating geometry as placeholder
+    // This avoids the GLTFLoader import issues in production builds
+    const geometry = new THREE.BoxGeometry(4, 4, 4);
+    const material = new THREE.MeshPhongMaterial({ 
+      color: 0x8b5cf6,
+      transparent: true,
+      opacity: 0.8
+    });
+    model = new THREE.Mesh(geometry, material);
+    model.castShadow = true;
+    model.receiveShadow = true;
+    scene.add(model);
+    console.log('Using 3D placeholder geometry');
 
     // Animation loop
     function animate() {

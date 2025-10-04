@@ -28,6 +28,7 @@
     "@web3-onboard/core": "^2.21.2",
     "@web3-onboard/injected-wallets": "^2.10.11",
     "ethers": "^5.7.2",
-    "svelte-french-toast": "^1.2.0"
+    "svelte-french-toast": "^1.2.0",
+    "three": "^0.160.0"
   }
 }
