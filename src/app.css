@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #EC4899;
+  --primary-dark: #DB2777;
+  --secondary: #A855F7;
+  --secondary-dark: #9333EA;
+  --background: #1A0B2E;
+  --background-light: #2D1B69;
+  --card-bg: #2D1B69;
+  --card-bg-hover: #3B2A7A;
+  --accent: #F472B6;
+  --accent-light: #FBBF24;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-light) 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.farm-card {
+  background: linear-gradient(145deg, var(--card-bg) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-[#EC4899] to-[#A855F7] text-white font-semibold py-3 px-6 rounded-xl 
+         hover:from-[#DB2777] hover:to-[#9333EA] transition-all duration-300 
+         shadow-lg hover:shadow-xl hover:shadow-pink-500/25;
+}
+
+.input-amount {
+  @apply bg-[#2D1B69] border border-pink-500/30 rounded-xl px-4 py-3 
+         text-white focus:outline-none focus:border-[#EC4899] focus:ring-2 focus:ring-pink-500/20
+         placeholder-gray-400;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #EC4899 0%, #A855F7 50%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #EC4899; /* Fallback color for browsers that don't support background-clip: text */
+}
+
+.glass-effect {
+  background: rgba(45, 27, 105, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
