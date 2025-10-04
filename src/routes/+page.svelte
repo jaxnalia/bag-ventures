@@ -71,7 +71,7 @@
           <!-- Social Links -->
           <div class="flex gap-4 justify-center lg:justify-start mt-6">
             <a 
-              href="https://x.com/bagventures" 
+              href="https://x.com/Bag_Ventures" 
               target="_blank" 
               rel="noopener noreferrer"
               class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl flex items-center justify-center hover:bg-gray-700/70 hover:border-gray-600/70 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25 group"

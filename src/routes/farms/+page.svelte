@@ -345,7 +345,7 @@
          <!-- by <a class="text-purple-300 hover:text-purple-200 transition-colors font-semibold" href="https://discord.gg/74EcvWvC7M">BagVentures</a>. -->
         </p>
       <div class="flex justify-center gap-6 text-pink-300">
-        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://x.com/bagventures">
+        <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="https://x.com/Bag_Ventures">
           <span>🐦</span> X
         </a>
         <a class="hover:text-purple-300 transition-colors font-medium flex items-center gap-2" href="/">
