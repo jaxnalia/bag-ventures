@@ -28,9 +28,6 @@
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    
-    console.log('Canvas size:', canvas.clientWidth, 'x', canvas.clientHeight);
-    console.log('Camera position:', camera.position);
 
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0x404040, 1);
@@ -49,56 +46,19 @@
     pointLight2.position.set(5, -5, -5);
     scene.add(pointLight2);
 
-    // Load the BAG model
+    // Load the BAG model from GitHub
     const loadModel = async () => {
       try {
-        // Use a more compatible import method
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
         const loader = new GLTFLoader();
         
-        // Try multiple paths to find the model
-        const possiblePaths = [
-          '/src/lib/images/BAG.glb',
-          '/BAG.glb',
-          './BAG.glb',
-          'BAG.glb',
-          '/public/BAG.glb'
-        ];
-        
-        let gltf = null;
-        let lastError = null;
-        
-        for (const path of possiblePaths) {
-          try {
-            console.log('Trying to load model from:', path);
-            
-            // First, test if the file is accessible
-            const response = await fetch(path);
-            if (!response.ok) {
-              console.log('File not accessible at:', path, 'Status:', response.status);
-              continue;
-            }
-            
-            gltf = await loader.loadAsync(path);
-            console.log('Successfully loaded model from:', path);
-            break;
-          } catch (error) {
-            console.log('Failed to load from:', path, error.message);
-            lastError = error;
-          }
-        }
-        
-        if (!gltf) {
-          throw lastError || new Error('Could not load model from any path');
-        }
+        const modelUrl = 'https://raw.githubusercontent.com/jaxnalia/bag-ventures/main/src/lib/images/BAG.glb';
+        const gltf = await loader.loadAsync(modelUrl);
         
         model = gltf.scene;
-        
-        // Scale and position the model
         model.scale.setScalar(10);
         model.position.set(0, -0.15, 0);
         
-        // Enable shadows
         model.traverse((child) => {
           if (child instanceof THREE.Mesh) {
             child.castShadow = true;
@@ -107,9 +67,7 @@
         });
         
         scene.add(model);
-        console.log('BAG model loaded successfully');
       } catch (error) {
-        console.error('Error loading BAG model:', error);
         // Fallback: create a simple geometry
         const geometry = new THREE.BoxGeometry(2, 2, 2);
         const material = new THREE.MeshPhongMaterial({ 
@@ -121,7 +79,6 @@
         model.castShadow = true;
         model.receiveShadow = true;
         scene.add(model);
-        console.log('Using fallback geometry');
       }
     };
     
